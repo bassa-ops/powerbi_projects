@@ -11,7 +11,7 @@ percentage_chg */
 
 select f1.unique_products as unique_products_2020, f2.unique_products as unique_products_2021,((f2.unique_products-f1.unique_products)/f1.unique_products)*100 as percentage_chg from(select count(distinct product_code) as unique_products, fiscal_year from fact_gross_price group by fiscal_year) as f1, (select count(distinct product_code) as unique_products, fiscal_year from fact_gross_price group by fiscal_year)as f2 where f1.fiscal_year<f2.fiscal_year;
 
-/3*Provide a report with all the unique product counts for each segment and
+/* 2 Provide a report with all the unique product counts for each segment and
 sort them in descending order of product counts. The final output contains
 2 fields,
 segment
@@ -19,12 +19,12 @@ product_coun*/
 
 select segment ,count(distinct product_code) as product_count from dim_product group by segment order by product_count desc;
 
-4. Follow-up: Which segment had the most increase in unique products in
+/*4. Follow-up: Which segment had the most increase in unique products in
 2021 vs 2020? The final output contains these fields,
 segment
 product_count_2020
 product_count_2021
-difference
+difference */
 
 select s1.segment, s1.unique_prodcut as unique_prodcuts_2020, 
 s2.unique_prodcut as unique_prodcuts_2021, 
