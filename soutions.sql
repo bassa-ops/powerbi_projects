@@ -1,8 +1,11 @@
 
-SELECT 
-    *
-FROM
-    gdb023.dim_customer;
+SELECT * from dim_customer;
+SELECT * from dim_product;
+SELECT * from fact_gross_price;
+SELECT * from fact_manufacturing_cost;
+SELECT * from fact_pre_invoice_deductions;
+SELECT * from fact_sales_monthly;
+
 
 /*1) Provide the list of markets in which customer "Atliq Exclusive" operates its
 business in the APAC region.*/
